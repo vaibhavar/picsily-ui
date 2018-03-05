@@ -56,7 +56,3 @@ typings/
 
 # dotenv environment variables file
 .env
-<<<<<<< HEAD
-
-=======
->>>>>>> [UI] Initial webpack + react routes & node server setup
