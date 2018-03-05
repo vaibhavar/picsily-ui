@@ -23,7 +23,7 @@ function run(task) {
 
 tasks.dev = () => {
 	// Bundle
-	return run('bundle');
+	return run('bundle').then(() => tasks['server']());
 };
 
 // Breaking down tasks into bundling, running server
@@ -35,6 +35,7 @@ tasks.bundle = () => {
 
 		// When webpack is done
 		const onBundleComplete = (error, stats) => {
+			console.log('bundle completed');
 			const bundle = stats.compilation.chunks.find(x => x.name === 'main').files[0];
 			// Output stats to console
 			console.log(stats.toString(webpackConfig.stats));
@@ -42,8 +43,39 @@ tasks.bundle = () => {
 			resolve();
 		};
 
-		webpackCompiler.run(onBundleComplete);
+		const onWatchCompleted = (error, stats) => {
+			console.log('watch completed');
+			const bundle = stats.compilation.chunks.find(x => x.name === 'main').files[0];
+			// Output stats to console
+			console.log(stats.toString(webpackConfig.stats));
+			resolve();
+		};
+
+		// webpackCompiler.run(onBundleComplete);
+		// Also watch files when they're changed
+		webpackCompiler.watch(
+			{
+				ignored: ['/node_modules/', '/dist'],
+			},
+			onWatchCompleted
+		);
 	});
+};
+
+tasks.server = () => {
+	function onListening() {
+		var addr = server.address();
+		var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+		console.log('Listening on ' + bind);
+	}
+
+	let app = require('./app');
+	let http = require('http');
+	let port = process.env.PORT || '2000';
+	app.set('port', port);
+	const server = http.createServer(app);
+	server.listen(port);
+	server.on('listening', onListening);
 };
 
 // Execute the specified task or default one. E.g.: node run build

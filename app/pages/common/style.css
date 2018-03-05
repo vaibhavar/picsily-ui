@@ -1,0 +1,12 @@
+.navigation ul {
+	display: flex;
+	flex-direction: row; /* I like to be specific */
+	flex-wrap: wrap;
+	align-items: center; /* Vertical align in case of row */
+	justify-content: center; /* Horizontal align in case of row */
+}
+
+.navigation ul > li {
+	flex: 1;
+	list-style: none;
+}

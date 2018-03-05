@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon } from 'semantic-ui-react';
+import s from './style.css';
 
 class Header extends React.Component {
 	render() {
+		console.log(s);
 		return (
 			<header>
-				<nav>
+				<nav className={s.navigation}>
 					<ul>
 						<li>
 							<Button animated>
-								<Button.Content visible>Next</Button.Content>
+								<Button.Content visible>Picsily</Button.Content>
 								<Button.Content hidden>
 									<Icon name="right arrow" />
 								</Button.Content>

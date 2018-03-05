@@ -7,6 +7,7 @@ var config = {
 		filename: 'bundle.js',
 		path: __dirname + '/dist',
 	},
+	watch: true,
 	mode: 'development',
 	module: {
 		rules: [
@@ -17,6 +18,21 @@ var config = {
 				query: {
 					presets: ['react', 'env'],
 				},
+			},
+			{
+				test: /\.css$/, // all CSS files
+				exclude: /node_modules/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							modules: true,
+							minimize: true,
+						},
+					},
+				],
 			},
 		],
 	},
