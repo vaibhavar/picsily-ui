@@ -1,4 +1,8 @@
-// run.js
+/**
+ * This file is responsible for build tasks
+ */
+
+// Webpack API
 const webpack = require('webpack');
 
 // Object that holds all tasks
@@ -34,6 +38,8 @@ tasks.bundle = () => {
 			const bundle = stats.compilation.chunks.find(x => x.name === 'main').files[0];
 			// Output stats to console
 			console.log(stats.toString(webpackConfig.stats));
+
+			resolve();
 		};
 
 		webpackCompiler.run(onBundleComplete);

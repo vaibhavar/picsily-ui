@@ -1,4 +1,8 @@
-// App.js
+/**
+ * This is the <App /> component class that contains
+ * all routes and header navigation
+ */
+
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -8,7 +12,6 @@ import Header from './pages/common/Header';
 
 class App extends React.Component {
 	render() {
-		//return <span> Hello </span>;
 		return (
 			<span>
 				<Header />
