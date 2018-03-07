@@ -1,10 +1,15 @@
 const isVerbose = false;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
 
 var config = {
 	context: __dirname + '/app',
-	entry: './main.js',
+	entry: {
+		main: './main.js',
+		vendor: ['react', 'react-dom'],
+	},
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].js',
 		path: __dirname + '/dist',
 	},
 	watch: true,
@@ -47,6 +52,18 @@ var config = {
 		cached: isVerbose,
 		cachedAssets: isVerbose,
 	},
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				commons: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendor',
+					chunks: 'all',
+				},
+			},
+		},
+	},
+	plugins: [], // new BundleAnalyzerPlugin()
 };
 
 module.exports = config;

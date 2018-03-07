@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Icon } from 'semantic-ui-react';
 import s from './style.css';
 
 class Header extends React.Component {
