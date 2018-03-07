@@ -55,4 +55,9 @@ function normalizePort(val) {
   return false;
 }
 
+// Run from heroku
+if(process.argv[2] === 'start'){
+  startServer();
+}
+
 module.exports = { startServer: startServer };
