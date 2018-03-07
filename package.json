@@ -4,7 +4,7 @@
   "description": "UI development of Picsily - a community of inspirational photography curators",
   "main": "index.js",
   "scripts": {
-    "start": "node run dev && node ./bin/www",
+    "start": "node run dev",
     "dev": "node run dev"
   },
   "author": "vaibhavar",

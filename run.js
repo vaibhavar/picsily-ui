@@ -7,6 +7,7 @@ const webpack = require('webpack');
 
 // Object that holds all tasks
 const tasks = {};
+const server = require('./bin/www');
 
 function run(task) {
 	const start = new Date();
@@ -63,19 +64,7 @@ tasks.bundle = () => {
 };
 
 tasks.server = () => {
-	function onListening() {
-		var addr = server.address();
-		var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-		console.log('Listening on ' + bind);
-	}
-
-	let app = require('./app');
-	let http = require('http');
-	let port = process.env.PORT || '2000';
-	app.set('port', port);
-	const server = http.createServer(app);
-	server.listen(port);
-	server.on('listening', onListening);
+	server.startServer.call();
 };
 
 // Execute the specified task or default one. E.g.: node run build
