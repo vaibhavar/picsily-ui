@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require('path');
+const compression = require('compression');
 
 // Create server instance
 const app = express();
+
+// Enable GZIP
+app.use(compression());
 
 // Serve UI files from dist/ directory
 app.use(express.static('./dist/'));
