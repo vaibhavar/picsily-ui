@@ -18,7 +18,6 @@ import App from './app';
 
 class Wrapper extends React.Component {
 	render() {
-		console.log(browserHistory);
 		return (
 			<Provider store={store}>
 				<BrowserRouter history={browserHistory}>

@@ -11,14 +11,6 @@ class Header extends React.Component {
 				<nav className={s.navigation}>
 					<ul>
 						<li>
-							<Button animated>
-								<Button.Content visible>Picsily</Button.Content>
-								<Button.Content hidden>
-									<Icon name="right arrow" />
-								</Button.Content>
-							</Button>
-						</li>
-						<li>
 							<Link to="/">Home</Link>
 						</li>
 						<li>

@@ -15,7 +15,7 @@ function mapDispatchToProps(dispatch) {
 
 class Home extends React.Component {
 	getContent() {
-		return this.props.user ? <Dashboard /> : <Login />;
+		return this.props.user.loggedIn ? <Dashboard /> : <Login />;
 	}
 
 	render() {
