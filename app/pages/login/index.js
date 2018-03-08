@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import s from './style.css';
-import serviceUtil from '../../utils/serviceUtil';
 import { loginUser, registerUser } from '../../core/actions/user';
 
 function mapStateToProps(state) {
