@@ -41,7 +41,7 @@ class PictureUpload extends React.Component {
 
 	render() {
 		return (
-			<FloatingActionButton onClick={this.onFabClick} className={s.addButton}>
+			<span>
 				<input
 					onChange={this.handlePictureUpload}
 					ref={inp => {
@@ -51,8 +51,10 @@ class PictureUpload extends React.Component {
 					type="file"
 					accept="image/*"
 				/>
-				<TiCameraOutline size="30" color="#000" />
-			</FloatingActionButton>
+				<FloatingActionButton onClick={this.onFabClick} className={s.addButton}>
+					<TiCameraOutline size="30" color="#000" />
+				</FloatingActionButton>
+			</span>
 		);
 	}
 }

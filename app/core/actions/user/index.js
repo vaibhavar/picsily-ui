@@ -12,7 +12,12 @@ export function getLoggedInUser() {
     type: 'GET_USER',
     payload: new Promise((resolve, reject) => {
       ServiceUtil.getDataFromService(USER_URL)
-        .then(oData => oData.json().then(oJsonData => resolve(oJsonData)))
+        .then(oData =>
+          oData
+            .json()
+            .then(oJsonData => resolve(oJsonData))
+            .err(error => reject(error))
+        )
         .catch(err => reject(err));
     }),
   };
