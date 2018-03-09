@@ -2,24 +2,18 @@
  * Actions for user related APIs
  */
 
-const USER_URL = '';
+const USER_URL = '/users/loggedInUser';
 const USER_LOGIN_URL = '/users/login';
 
 import ServiceUtil from '../../../utils/serviceUtil';
 
-export function getLoggedinUser() {
+export function getLoggedInUser() {
   return {
     type: 'GET_USER',
     payload: new Promise((resolve, reject) => {
-      ServiceUtil.getDataFromService(
-        USER_URL,
-        resolvedData => {
-          resolve(resolvedData);
-        },
-        failedData => {
-          reject(failedData.responseJSON);
-        }
-      );
+      ServiceUtil.getDataFromService(USER_URL)
+        .then(oData => oData.json().then(oJsonData => resolve(oJsonData)))
+        .catch(err => reject(err));
     }),
   };
 }

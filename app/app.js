@@ -4,6 +4,8 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
+
 import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Home from './pages/home/';
@@ -11,6 +13,19 @@ import Profile from './pages/profile/';
 import Header from './pages/common/Header';
 import PictureUpload from './pages/common/PictureUpload';
 import s from './pages/common/style.css';
+import { getLoggedInUser } from './core/actions/user';
+
+function mapStateToProps(state) {
+	return { user: state.user };
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		getLoggedInUser: () => {
+			dispatch(getLoggedInUser());
+		},
+	};
+}
 
 class App extends React.Component {
 	constructor(props) {
@@ -22,6 +37,12 @@ class App extends React.Component {
 			// view new URL
 			console.log('New URL', this.props.history.location.pathname);
 		});
+
+		if (!this.appInit) {
+			// First time app init, check logged in user
+			this.props.getLoggedInUser();
+			this.appInit = true;
+		}
 	}
 
 	onRouteChanged() {}
@@ -45,4 +66,4 @@ class App extends React.Component {
 	}
 }
 
-export default withRouter(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
