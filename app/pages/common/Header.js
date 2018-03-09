@@ -23,7 +23,7 @@ class Header extends React.Component {
 				<nav className={`navbar navbar-expand-lg fixed-top ${s.picsilyNavBar}`}>
 					<div className="container">
 						<Link className="navbar-brand" to="/">
-							Picsily
+							<img alt="Picsily" src="images/logo.png" />
 						</Link>
 
 						<ul className={`navbar-nav mr-auto ${s.picsilyNavBarUl}`}>

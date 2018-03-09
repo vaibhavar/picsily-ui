@@ -105,3 +105,8 @@ body {
 .activeLink a {
 	color: #fd4885;
 }
+
+.picsilyNavBar img {
+	height: 30px;
+	width: auto;
+}
