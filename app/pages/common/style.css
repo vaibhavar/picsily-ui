@@ -53,13 +53,20 @@ body {
 }
 
 .picsilyNavBar a {
-	color: #fd4885;
+	color: #828080;
+	text-decoration: none;
 }
 
 .picsilyNavBarUl {
 	flex-direction: row;
 	justify-content: space-around;
 	flex: 1;
+}
+
+.picsilyNavBarUl li {
+	flex: 1;
+	text-align: center;
+	position: relative;
 }
 
 .addButton {
@@ -71,4 +78,30 @@ body {
 
 .addButton button {
 	background: #fd4885 !important;
+}
+
+.picsilySearchBar {
+	flex: 2;
+}
+
+.picsilySearchBarText {
+	height: auto;
+}
+
+.activeLink a::after {
+	border-bottom: 1px solid transparent;
+	bottom: -10px;
+	box-shadow: 2px 4px 1px 0px #eb5bb1;
+	content: ' ';
+	left: 0;
+	position: absolute;
+	right: 0;
+}
+
+.activeLink svg {
+	color: #fd4885 !important;
+}
+
+.activeLink a {
+	color: #fd4885;
 }

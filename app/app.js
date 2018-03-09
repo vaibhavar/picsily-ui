@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Home from './pages/home/';
 import Profile from './pages/profile/';
@@ -13,11 +13,24 @@ import PictureUpload from './pages/common/PictureUpload';
 import s from './pages/common/style.css';
 
 class App extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	componentWillMount() {
+		this.props.history.listen(() => {
+			// view new URL
+			console.log('New URL', this.props.history.location.pathname);
+		});
+	}
+
+	onRouteChanged() {}
+
 	render() {
 		return (
 			<div>
 				<div className={s.appContainer}>
-					<Header />
+					<Header activeUrl={this.props.history.location.pathname} />
 					<div className={`container ${s.routeContainer}`}>
 						<Switch>
 							<Route exact path="/" component={Home} />
@@ -32,4 +45,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default withRouter(App);
