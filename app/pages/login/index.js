@@ -62,23 +62,27 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className={s.loginBox}>
-				<center>
-					<img src="images/logo.png" />
-				</center>
-				<form onSubmit={this.loginUser}>
-					<input
-						placeholder="Username"
-						onChange={ev => this.handleChangeOf('user', ev)}
-					/>
-					<input
-						type="password"
-						onChange={ev => this.handleChangeOf('pass', ev)}
-						placeholder="Password"
-					/>
-					<FlatButton primary onClick={this.loginUser} label="Login" />
-					<FlatButton onClick={this.registerUser} label="Register" />
-				</form>
+			<div className="container">
+				<div className="row">
+					<div className={s.loginBox}>
+						<center>
+							<img src="images/logo.png" />
+						</center>
+						<form onSubmit={this.loginUser}>
+							<input
+								placeholder="Username"
+								onChange={ev => this.handleChangeOf('user', ev)}
+							/>
+							<input
+								type="password"
+								onChange={ev => this.handleChangeOf('pass', ev)}
+								placeholder="Password"
+							/>
+							<FlatButton primary onClick={this.loginUser} label="Login" />
+							<FlatButton onClick={this.registerUser} label="Register" />
+						</form>
+					</div>
+				</div>
 			</div>
 		);
 	}

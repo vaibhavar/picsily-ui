@@ -9,7 +9,7 @@ import { Card, CardHeader, CardMedia } from 'material-ui';
 function mapStateToProps(state) {
 	return {
 		photos: state.photos.photos,
-		my_photos: state.photos.my_photos,
+		my_photos: state.photos.my_photos ? state.photos.my_photos : [],
 		feed_photos: state.photos.feed_photos,
 		ui_loading: state.photos.ui_loading,
 	};
@@ -42,7 +42,7 @@ class Dashboard extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1> Home </h1>
+				<h3> Home </h3>
 				{this.props.my_photos.map(oPhoto => (
 					<Card>
 						<CardHeader title={oPhoto.userId.username} />

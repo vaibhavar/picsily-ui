@@ -51,7 +51,10 @@ class App extends React.Component {
 		return (
 			<div>
 				<div className={s.appContainer}>
-					<Header activeUrl={this.props.history.location.pathname} />
+					<Header
+						activeUrl={this.props.history.location.pathname}
+						loggedIn={this.props.user.loggedIn}
+					/>
 					<div className={`container ${s.routeContainer}`}>
 						<Switch>
 							<Route exact path="/" component={Home} />

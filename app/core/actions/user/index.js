@@ -7,6 +7,16 @@ const USER_LOGIN_URL = '/users/login';
 
 import ServiceUtil from '../../../utils/serviceUtil';
 
+export function logoutUser() {
+  return {
+    type: 'LOGOUT_USER',
+    payload: new Promise((resolve, reject) => {
+      ServiceUtil.logoutUser();
+      resolve();
+    }),
+  };
+}
+
 export function getLoggedInUser() {
   return {
     type: 'GET_USER',
