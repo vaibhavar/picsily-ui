@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { getPhotos, getFeedPhotos, getMyPhotos } from '../../core/actions/photos';
 import { FlatButton, RaisedButton } from 'material-ui';
+import { Card, CardHeader, CardMedia } from 'material-ui';
 
 function mapStateToProps(state) {
 	return {
@@ -42,7 +43,14 @@ class Dashboard extends React.Component {
 		return (
 			<div>
 				<h1> Home </h1>
-				{this.props.my_photos.map(oPhoto => <img src={oPhoto.fileURL} />)}
+				{this.props.my_photos.map(oPhoto => (
+					<Card>
+						<CardHeader title={oPhoto.userId.username} />
+						<CardMedia>
+							<img src={oPhoto.fileURL} />
+						</CardMedia>
+					</Card>
+				))}
 			</div>
 		);
 	}
