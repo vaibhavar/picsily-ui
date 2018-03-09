@@ -1,18 +1,60 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import TiCameraOutline from 'react-icons/lib/ti/camera-outline';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 import s from './style.css';
+import { uploadPhoto } from '../../core/actions/photos';
+
+function mapStateToProps(state) {
+	return {
+		photos: state.photos.photos,
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		uploadPhoto: oFile => {
+			dispatch(uploadPhoto(oFile));
+		},
+	};
+}
 
 class PictureUpload extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handlePictureUpload = this.handlePictureUpload.bind(this);
+		this.onFabClick = this.onFabClick.bind(this);
+	}
+
+	onFabClick() {
+		this.input.click();
+	}
+
+	handlePictureUpload(ev) {
+		var oFile = this.input.files[0];
+		this.props.uploadPhoto(oFile);
+		// Reset input
+		this.input.value = '';
+	}
+
 	render() {
 		return (
-			<FloatingActionButton className={s.addButton}>
-				<TiCameraOutline size="20" color="#000" />
+			<FloatingActionButton onClick={this.onFabClick} className={s.addButton}>
+				<input
+					onChange={this.handlePictureUpload}
+					ref={inp => {
+						this.input = inp;
+					}}
+					className={s.fileInput}
+					type="file"
+					accept="image/*"
+				/>
+				<TiCameraOutline size="30" color="#000" />
 			</FloatingActionButton>
 		);
 	}
 }
 
-export default PictureUpload;
+export default connect(mapStateToProps, mapDispatchToProps)(PictureUpload);

@@ -41,10 +41,8 @@ class Dashboard extends React.Component {
 	render() {
 		return (
 			<div>
-				<FlatButton label="Upload" /> This is dashboard
-				<RaisedButton label="Add Photos" labelPosition="before">
-					<input type="file" style={{ width: '100%', opacity: 0 }} />
-				</RaisedButton>
+				<h1> Home </h1>
+				{this.props.my_photos.map(oPhoto => <img src={oPhoto.fileURL} />)}
 			</div>
 		);
 	}
