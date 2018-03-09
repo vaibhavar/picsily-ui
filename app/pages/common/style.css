@@ -12,7 +12,6 @@
 }
 
 .appContainer {
-	max-width: 1200px;
 	display: flex;
 	flex-direction: column;
 	margin: auto;
@@ -39,4 +38,37 @@ body {
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
+	.picsilyNavBarText {
+		display: none;
+	}
+}
+
+.routeContainer {
+	margin-top: 60px;
+}
+
+.picsilyNavBar {
+	background: white;
+	box-shadow: 1px 1px 9px 2px #efefef;
+}
+
+.picsilyNavBar a {
+	color: #fd4885;
+}
+
+.picsilyNavBarUl {
+	flex-direction: row;
+	justify-content: space-around;
+	flex: 1;
+}
+
+.addButton {
+	position: fixed;
+	will-change: transform; /* GPU */
+	bottom: 20px;
+	right: 20px;
+}
+
+.addButton button {
+	background: #fd4885 !important;
 }

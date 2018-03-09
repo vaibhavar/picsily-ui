@@ -13,6 +13,8 @@ import { BrowserRouter, browserHistory } from 'react-router-dom';
 import { Provider } from 'react-redux';
 // State store
 import store from './core/store';
+// Needed for material-ui
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import App from './app';
 
@@ -20,9 +22,11 @@ class Wrapper extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<BrowserRouter history={browserHistory}>
-					<App />
-				</BrowserRouter>
+				<MuiThemeProvider>
+					<BrowserRouter history={browserHistory}>
+						<App />
+					</BrowserRouter>
+				</MuiThemeProvider>
 			</Provider>
 		);
 	}

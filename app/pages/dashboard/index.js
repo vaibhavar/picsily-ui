@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getPhotos, getFeedPhotos, getMyPhotos } from '../../core/actions/photos';
+import { FlatButton, RaisedButton } from 'material-ui';
 
 function mapStateToProps(state) {
 	return {
@@ -38,7 +39,14 @@ class Dashboard extends React.Component {
 	}
 
 	render() {
-		return <div> This is dashboard </div>;
+		return (
+			<div>
+				<FlatButton label="Upload" /> This is dashboard
+				<RaisedButton label="Add Photos" labelPosition="before">
+					<input type="file" style={{ width: '100%', opacity: 0 }} />
+				</RaisedButton>
+			</div>
+		);
 	}
 }
 

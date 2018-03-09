@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import s from './style.css';
+import { FlatButton } from 'material-ui';
 import { loginUser, registerUser } from '../../core/actions/user';
 
 function mapStateToProps(state) {
@@ -75,8 +76,8 @@ class Login extends React.Component {
 						onChange={ev => this.handleChangeOf('pass', ev)}
 						placeholder="Password"
 					/>
-					<button type="submit">Login</button>
-					<button onClick={this.registerUser}>Register</button>
+					<FlatButton primary onClick={this.loginUser} label="Login" />
+					<FlatButton onClick={this.registerUser} label="Register" />
 				</form>
 			</div>
 		);

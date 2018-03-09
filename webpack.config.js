@@ -1,5 +1,9 @@
 const isVerbose = false;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+// UglifyJS plugin
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const webpack = require('webpack');
 
 var config = {
@@ -24,6 +28,11 @@ var config = {
 					presets: ['es2015', 'react', 'stage-2'],
 					//presets: ['react', 'env'],
 				},
+			},
+			{
+				test: /react-icons\/(.)*(.js)$/,
+				loader: 'babel',
+				include: '/node_modules/react-icons',
 			},
 			{
 				test: /\.css$/, // all CSS files
@@ -64,7 +73,7 @@ var config = {
 			},
 		},
 	},
-	plugins: [], // new BundleAnalyzerPlugin()
+	plugins: [new UglifyJsPlugin()], // new BundleAnalyzerPlugin()
 };
 
 module.exports = config;
