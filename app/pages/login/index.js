@@ -26,12 +26,12 @@ function mapDispatchToProps(dispatch) {
 class Login extends React.Component {
 	constructor(props) {
 		super(props);
-		this.setState({
+		this.state = {
 			user: '',
 			pass: '',
 			firstName: '',
 			lastName: '',
-		});
+		};
 
 		this.handleChangeOf = this.handleChangeOf.bind(this);
 		this.loginUser = this.loginUser.bind(this);

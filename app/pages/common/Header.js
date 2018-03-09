@@ -7,13 +7,14 @@ import TiPointOfInterest from 'react-icons/lib/ti/point-of-interest';
 import TiUserOutline from 'react-icons/lib/ti/user-outline';
 import TiPower from 'react-icons/lib/ti/power';
 import TiHeartOutline from 'react-icons/lib/ti/heart-outline';
+import LinearProgress from 'material-ui/LinearProgress';
 
 import { logoutUser } from '../../core/actions/user';
 
 import s from './style.css';
 
 function mapStateToProps(state) {
-	return {};
+	return { ui_loading: state.user.ui_loading || state.photos.ui_loading };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -65,6 +66,14 @@ class Header extends React.Component {
 		return sLink === this.props.activeUrl ? s.activeLink : '';
 	}
 
+	getLoading(bLoading) {
+		return bLoading ? (
+			<LinearProgress color="#fd4885" className={s.picsilyProgressBar} mode="indeterminate" />
+		) : (
+			<span />
+		);
+	}
+
 	render() {
 		this.getActiveClass();
 		return (
@@ -111,6 +120,7 @@ class Header extends React.Component {
 							</li>*/}
 						</ul>
 					</div>
+					<div className="container">{this.getLoading(this.props.ui_loading)}</div>
 				</nav>
 			</header>
 		);

@@ -50,6 +50,7 @@ body {
 .picsilyNavBar {
 	background: white;
 	box-shadow: 1px 1px 9px 2px #efefef;
+	flex-direction: column;
 }
 
 .picsilyNavBar a {
@@ -118,4 +119,9 @@ body {
 	opacity: 0;
 	width: 0;
 	height: 0;
+}
+
+.picsilyProgressBar {
+	width: 100%;
+	top: 2px;
 }

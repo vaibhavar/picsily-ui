@@ -13,7 +13,12 @@ export function uploadPhoto(oFile) {
     type: 'UPLOAD_PHOTO',
     payload: new Promise((resolve, reject) => {
       ServiceUtil.uploadPhoto(oFile)
-        .then(oData => oData.json().then(oJsonData => resolve(oJsonData)))
+        .then(oData =>
+          oData
+            .json()
+            .then(oJsonData => resolve(oJsonData))
+            .catch(error => reject(error))
+        )
         .catch(err => reject(err));
     }),
   };

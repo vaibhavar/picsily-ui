@@ -44,6 +44,8 @@ module.exports = {
 
 		return fetch(sUrl, {
 			method: 'POST',
+			credentials: 'include',
+			redirect: 'follow',
 			headers: { 'x-access-token': this.getToken() },
 			body: oFormData,
 		});
