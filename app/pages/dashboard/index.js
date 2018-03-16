@@ -6,6 +6,9 @@ import { getPhotos, getFeedPhotos, getMyPhotos } from '../../core/actions/photos
 import { FlatButton, RaisedButton } from 'material-ui';
 import { Card, CardHeader, CardMedia } from 'material-ui';
 
+import SuggestedPhotos from '../common/SuggestedPhotos';
+import s from './style.css';
+
 function mapStateToProps(state) {
 	return {
 		photos: state.photos.photos,
@@ -42,15 +45,20 @@ class Dashboard extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3> Home </h3>
-				{this.props.my_photos.map(oPhoto => (
-					<Card>
-						<CardHeader title={oPhoto.userId.username} />
-						<CardMedia>
-							<img src={oPhoto.fileURL} />
-						</CardMedia>
-					</Card>
-				))}
+				<SuggestedPhotos />
+				<div>
+					{this.props.my_photos &&
+						this.props.my_photos.map(oPhoto => (
+							<div className={s.cardContainer}>
+								<Card>
+									<CardHeader title={oPhoto.userId.username} />
+									<CardMedia>
+										<img src={oPhoto.fileURL} />
+									</CardMedia>
+								</Card>
+							</div>
+						))}
+				</div>
 			</div>
 		);
 	}

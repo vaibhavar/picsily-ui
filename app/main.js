@@ -15,14 +15,25 @@ import { Provider } from 'react-redux';
 import store from './core/store';
 // Needed for material-ui
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import App from './app';
+
+const muiTheme = getMuiTheme({
+	palette: {
+		primary1Color: '#E91E63',
+		primary2Color: '#E91E63',
+		primary3Color: '#E91E63',
+		accent1Color: '#FF80AB',
+	},
+});
 
 class Wrapper extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<MuiThemeProvider>
+				<MuiThemeProvider muiTheme={muiTheme}>
 					<BrowserRouter history={browserHistory}>
 						<App />
 					</BrowserRouter>

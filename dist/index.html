@@ -4,6 +4,8 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat" rel="stylesheet" lazyload>
+
     <title>Picisly</title>
   </head>
   <body>
@@ -12,5 +14,23 @@
     <script src="vendor.js"></script>
     <!-- App specific code -->
     <script src="main.js"></script>
+    <style>
+            
+      /* Change Autocomplete styles in Chrome*/
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus input:-webkit-autofill,
+      textarea:-webkit-autofill,
+      textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+      select:-webkit-autofill,
+      select:-webkit-autofill:hover,
+      select:-webkit-autofill:focus {
+        border: 1px solid transparent;
+        background-color: transparent !important;
+        -webkit-box-shadow: 0 0 0 50px white inset;
+      }
+
+  </style>
   </body>
 </html>
