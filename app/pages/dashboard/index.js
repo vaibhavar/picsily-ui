@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
 	render() {
 		return (
 			<div>
-				<SuggestedPhotos />
+				<SuggestedPhotos photos={this.props.my_photos} />
 				<div>
 					{this.props.my_photos &&
 						this.props.my_photos.map(oPhoto => (

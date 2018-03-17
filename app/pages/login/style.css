@@ -4,6 +4,10 @@
 	/* font-family: 'Montserrat', sans-serif; */
 }
 
+.loginInput {
+	width: 100%;
+}
+
 .loginInput input {
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 20px;
@@ -16,4 +20,17 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+}
+
+.loginForm {
+	display: flex;
+	flex-direction: column;
+}
+
+.registerMode .registerFields {
+	display: inline-block !important;
+}
+
+.registerFields {
+	display: none !important;
 }
